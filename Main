@@ -1,0 +1,69 @@
+Sub licenseLookUp()
+
+    Dim sURL As String, iDIV As Long, htmlBDY As HTMLDocument, xmlHTTP As MSXML2.ServerXMLHTTP60
+    Dim i, j, k, l, m As Integer
+    Dim add1 As String
+    Dim add2() As Variant
+    Set xmlHTTP = New MSXML2.ServerXMLHTTP60
+    Set htmlBDY = New HTMLDocument
+    Dim StartTime As Double
+    Dim SecondsElapsed As Double
+    StartTime = Timer
+    Dim numRows As Long
+    numRows = Sheet1.Cells(Sheet1.Cells.Rows.Count, 1).End(xlUp).Row
+
+    For i = 1 To numRows
+      
+      'create the webpage url string with the license number we want to look up
+        sURL = "http://www.okmedicalboard.org/licensee/MD/" & Sheet1.Range("A" & i).Value2
+      
+      'perform get request to the website's server
+        With xmlHTTP
+            .Open "GET", sURL, False
+            .setRequestHeader "Content-Type", "text/xml"
+            .send
+            Do While .readyState <> READYSTATE_COMPLETE: DoEvents: Loop
+            htmlBDY.body.innerHTML = .responseText
+        End With
+
+      'walk through the webpage DOM and retrieve the address
+        add1 = htmlBDY.getElementsByTagName("tbody")(0).getElementsByTagName("tr")(0) _
+            .getElementsByTagName("td")(0).getElementsByTagName("a")(0).innertext
+
+      'break the address string up by linebreaks, and the 2nd portion by spaces
+        Dim strTest As String
+        Dim strArray() As String
+        Dim strarray1() As String
+        Dim intCount As Integer
+        Dim intcount1 As Integer
+        strArray = Split(add1, Chr(10))
+        l = 0
+        For intCount = LBound(strArray) To UBound(strArray)
+            If intCount = UBound(strArray) Then
+                strarray1 = Split(strArray(intCount), " ")
+                For intcount1 = LBound(strarray1) To UBound(strarray1)
+                    If Trim(strarray1(intcount1)) = "LITTLE" Or Trim(strarray1(intcount1)) = "OKLAHOMA" Then
+                        Sheet1.Cells(i, 2 + l).Value2 = Trim(strarray1(intcount1)) & " " & Trim(strarray1(intcount1 + 1))
+                        Sheet1.Cells(i, 2 + l + 1).Value2 = Trim(strarray1(intcount1 + 2))
+                        Sheet1.Cells(i, 2 + l + 2).Value2 = Trim(strarray1(intcount1 + 3))
+                        Exit For
+                    Else
+                        Sheet1.Cells(i, 2 + l).Value2 = Trim(strarray1(intcount1))
+                        l = l + 1
+                    End If
+                Next
+            Else
+                Sheet1.Cells(i, 2 + l).Value2 = Trim(strArray(intCount))
+                l = l + 1
+            End If
+        Next
+    
+    Next i
+
+    Set htmlBDY = Nothing
+    Set xmlHTTP = Nothing
+    
+    SecondsElapsed = Round(Timer - StartTime, 2)
+    MsgBox "This code ran successfully in " & SecondsElapsed & " seconds", vbInformation
+
+End Sub
