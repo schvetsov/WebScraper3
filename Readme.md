@@ -6,13 +6,17 @@ Performs searches by license numbers and pulls the address out of the webpage DO
 and pastes it in the spreadsheet
 
 ### Installation Instructions
-This web scraper was written in Microsoft Excel 2016 edition, it has not been tested in older versions.<br/>
-***This web scraper will only work in Windows, it will not work in iOS version of Excel due to missing object libraries
+This project was ritten in Microsoft Excel 2016 edition, it has not been tested in older versions.<br/>
+It will not work in iOS version of Excel due to missing object libraries
 
 1. Open a blank Excel workbook
 2. Open the VBA editor, there are several ways to get to it:
-  a. Alt + F11
-  b. File > Options > Customize Ribbon, click Developer check box. Click OK. Click Developer in your ribbon, and all the way on the left click the "Visual Basic" icon
+    - Alt + F11
+    - Go to File > Options > Customize Ribbon 
+        1. Click Developer check box 
+        2. Click OK 
+        3. Click Developer in your ribbon
+        4. All the way on the left click the "Visual Basic" icon
 3. In the VBA editor, go to Tools > References and make sure the following libraries are enabled:
   Visual Basic For Applications
   Microsoft Excel 16.0 Object Library
