@@ -6,7 +6,7 @@ Performs searches by license numbers and pulls the address out of the webpage DO
 and pastes it in the spreadsheet
 
 ### Installation Instructions
-This web scraper was written in Microsoft Excel 2016 edition, it has not been tested in older versions.
+This web scraper was written in Microsoft Excel 2016 edition, it has not been tested in older versions.<br/>
 ***This web scraper will only work in Windows, it will not work in iOS version of Excel due to missing object libraries
 
 1. Open a blank Excel workbook
