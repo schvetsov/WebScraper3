@@ -28,10 +28,10 @@ This web scraper was written in Microsoft Excel 2016 edition, it has not been te
         - Press F5 to execute all code, or press F8 continuously to step through the code
         - Press the play button at the top of the VBA editor
     - Back in the spreadsheet in the Developer ribbon 
-        a. Click on "Insert" 
-        b. Click "Button" (it should be the first one)
-        c. Create a button somewhere in the spreadsheet 
-        d. Right click on the button and select "Assign Macro"
-        e. Select the macro that we pasted into Module 1 and click OK 
-        f. Now you can click the button to run the macro
+        1. Click on "Insert" 
+        2. Click "Button" (it should be the first one)
+        3. Create a button somewhere in the spreadsheet 
+        4. Right click on the button and select "Assign Macro"
+        5. Select the macro that we pasted into Module 1 and click OK 
+        6. Now you can click the button to run the macro
 7. Watch the addresses populate the spreadsheet!
