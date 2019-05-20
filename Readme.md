@@ -25,7 +25,7 @@ This web scraper was written in Microsoft Excel 2016 edition, it has not been te
 5. Copy the list of license numbers in the "Licenses" file, and paste it in column A beginning in cell A1
 6. Run the macro, there are several ways to do it:
   1. In the VBA edtior with Module 1 window active you can
-    1. Press F5 to execute all code, or press F8 continuously to step through the code
-    2. Press the play button at the top of the VBA editor
+    - Press F5 to execute all code, or press F8 continuously to step through the code
+    - Press the play button at the top of the VBA editor
   2. Back in the spreadsheet in the Developer ribbon, click on "Insert", and click "Button" (it should be the first one). Create a button      somewhere in the spreadsheet, right click on the button and "Assign Macro". Select the macro that we pasted into Module 1 and now you      can click the button to run the macro.
 7. Watch the addresses populate the spreadsheet!
