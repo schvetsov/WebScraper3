@@ -2,11 +2,11 @@
 
 ### Description
 Written entirely in Excel with VBA and XML/HTTP Object Libraries
-Performs searches by license numbers and pulls the address out of the webpage DOM 
+Performs searches by license number and pulls the address out of the webpage DOM 
 and pastes it in the spreadsheet
 
 ### Installation Instructions
-This project was ritten in Microsoft Excel 2016 edition, it has not been tested in older versions.<br/>
+This project was written in Microsoft Excel 2016 edition, it has not been tested in older versions.<br/>
 It will not work in iOS version of Excel due to missing object libraries
 
 1. Open a blank Excel workbook
